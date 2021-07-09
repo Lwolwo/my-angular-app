@@ -1,6 +1,92 @@
 {
-  "extends": ["tslint-plugin-prettier", "tslint-config-prettier"],
+  "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
+    "arrow-return-shorthand": true, // 将()=>{return x}转换为()=>x
+    "callable-types": true, // 可以将仅带有调用签名的接口或文字类型编写为函数类型
+    "class-name": true, // 强制使用PascalCased类和接口名称
+    "comment-format": [true, "check-space"], // 单行的评论前必须有一个空格
+    "curly": true, // 对于if/for/do/while语句强制需要花括号
+    "deprecation": {
+      "severity": "warn"
+    }, // 使用了不推荐的APIs时发出警告
+    "eofline": true, // 文件已换行符结尾
+    "forin": true, // 使用for..in语句过滤if语句
+    "import-blacklist": [true, "rxjs/Rx"], // 导入黑名单，禁止直接导入rxjs/Rx，仅需导入所需的子模块
+    "import-spacing": true, // import 的关键字之间添加空格
+    "indent": [true, "spaces"], // 使用空格强制缩进
+    "interface-over-type-literal": true, // 使用接口定义而不是(type T = { ... })
+    "label-position": true, // 只允许将label放在合适的位置
+    "max-line-length": [true, 140], // 行长超过140之后换行
+    "member-access": false, // 不需要类成员的显式可见性声明
+    "member-ordering": [
+      // 对类成员的排序，使类更容易阅读、导航和编辑
+      true,
+      {
+        "order": ["static-field", "instance-field", "static-method", "instance-method"]
+      }
+    ],
+    "no-arg": true, // 不允许使用arguments.callee
+    "no-bitwise": true, // 不允许使用位运算符
+    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"], // 列出不允许使用的console方法
+    "no-construct": true, // 不允许使用String，Number,Boolean构造函数
+    "no-debugger": true, // 不允许使用debugger语句
+    "no-duplicate-super": true, // super在一个构造函数中出现两次则发出警告
+    "no-empty": false, // 允许使用空代码块
+    "no-empty-interface": true, // 不允许使用空接口
+    "no-eval": true, // 不允许使用eval函数
+    "no-inferrable-types": [true, "ignore-params"], // 不允许对初始化为数字，字符串或布尔值的变量或参数进行显式类型声明,允许为函数参数指定不可推断的类型注释
+    "no-misused-new": true, // 为接口或new类定义构造函数时发出警告
+    "no-non-null-assertion": true, // 不允许使用!后缀运算符进行非null断言
+    "no-redundant-jsdoc": true, // 禁止JSDoc复制TypeScript功能
+    "no-shadowed-variable": true, // 禁止阴影变量声明
+    "no-string-literal": false, // 允许使用obj["property"]方式获取对象属性
+    "no-string-throw": true, // 不允许直接throw字符串
+    "no-switch-case-fall-through": true, // 不允许case语句下降
+    "no-trailing-whitespace": true, // 不允许行尾尾随空格
+    "no-unnecessary-initializer": true, // 不允许使用let时初始化值为undefined
+    "no-unused-expression": true, // 不允许出现未使用的表达式
+    "no-use-before-declare": true, // 不允许使用未声明的变量
+    "no-var-keyword": true, // 不允许使用var关键字
+    "object-literal-sort-keys": false, // 不对对象中的属性关键字排序
+    "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"], // 要求指定的标记与它们之前的表达式位于同一行
+    "prefer-const": true, // 尽量使用const而不是let
+    "quotemark": [true, "single"], // 强制字符串使用单引号
+    "radix": true, // 使用parseInt时需要制定radix参数
+    "semicolon": [true, "always"], // 句尾使用分号
+    "triple-equals": [true, "allow-null-check"], // 使用'==='和'!=='做判断，允许使用'=='和'!='判断null
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ], // 不允许为上述列出的类型定义使用空格
+    "unified-signatures": true, // 当两个函数可以使用rest等方法合并时，发出警告
+    "variable-name": false, // 不检查变量命名格式
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type",
+      "check-module",
+      "check-type-operator"
+    ], // 设置空格的风格
+    "no-output-on-prefix": true, // 命名事件不带前缀
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true, // 使用@HostProperty装饰器而不是@Component和@Directive元数据的host属性
+    "no-input-rename": true, // 通过提供字符串给装饰器禁止重命名指令输入
+    "no-output-rename": true, // 通过提供字符串给装饰器禁止重命名指令输出
+    "use-life-cycle-interface": true, // 确保implement生命周期接口之后再使用
+    "use-pipe-transform-interface": true, // 确保使用@Pipe装饰器实现PipeTransform接口
+    "component-class-suffix": true, // 用@Component装饰的类必须带有Component后缀
+    "directive-class-suffix": true, // 用@Directive装饰的类必须带有Directive后缀
     "prettier": true
-  }
+  },
+  "extends": ["tslint-plugin-prettier", "tslint-config-prettier"]
 }
