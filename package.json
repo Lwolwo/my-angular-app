@@ -47,8 +47,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test:once"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS && node ./scripts/commit-lint/commit-lint.js HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
